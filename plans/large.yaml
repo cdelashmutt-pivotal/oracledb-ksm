@@ -1,0 +1,6 @@
+resources:
+  requests:
+    memory: 12Gi
+    cpu: 6
+pvc:
+  storageSize: 80Gi

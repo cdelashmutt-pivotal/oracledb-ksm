@@ -1,0 +1,20 @@
+# The plans.yaml and plans/ directory are optional. 
+# In cf marketplace, each service has a set of plans that developers can provision. A plan is a template for service 
+#    instances. For example, different plans might represent a large or a small instance of a database. 
+# NOTE: Refer to the "(Optional) Define Plans Configuration" section in the "Preparing a Service Offering" document 
+#     at https://docs.pivotal.io/ksm if you need further information.
+- name: "demo"
+  description: "Single Instance with 5GiB of storage, 800MiB of memory, and 1 CPU"
+  file: "demo.yaml"
+- name: "small"
+  description: "Single Instance with 20GiB of storage, 2.5GiB of memory, and 2 CPUs"
+  file: "small.yaml"
+- name: "medium"
+  description: "Single Instance with 50GiB of storage, 6GiB of memory, and 4 CPU"
+  file: "medium.yaml"
+- name: "large"
+  description: "Single Instance with 80GiB of storage, 12GiB of memory, and 6 CPU"
+  file: "large.yaml"
+- name: "xlarge"
+  description: "Single Instance with 150GiB of storage, 20GiB of memory, and 8 CPU"
+  file: "xlarge.yaml"

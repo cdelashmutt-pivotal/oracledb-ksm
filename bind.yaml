@@ -1,0 +1,23 @@
+# The bind.yaml is optional.
+# Apps running in Pivotal Application Service gain access to bound service instances through an 
+#     environment variable named VCAP_SERVICES consisting of a credentials map.
+# Create a binding template with desired bind format for the chart to be exposed. 
+#
+# The example below shows all available information, so you can use that to compose your own template.
+#
+# NOTE: Refer to the "(Optional) Create Binding Template for App Consumption" section in the "Preparing a Service Offering" document 
+#     at https://docs.pivotal.io/ksm if you need further information.
+#     String.format("jdbc:%s:thin:%s/%s@%s:%d/%s", ORACLE_SCHEME,
+#				uriInfo.getUsername(), uriInfo.getPassword(),
+#				uriInfo.getHost(), uriInfo.getPort(), uriInfo.getPath());
+
+template: |
+  {
+    hostname: $.services[0].status.loadBalancer.ingress[0].ip,
+    name: $.services[0].name,
+    jdbcUrl: "jdbc:oracle:thin:" + self.username + "/" + self.password + "@" + self.hostname + ":" + self.port + "/XE",
+    uri: "oracle://" + self.hostname + ":" + self.port + "/XE",
+    password: $.secrets[0].data['oracledb-system-password'],
+    port: 1521,
+    username: "system"
+  }

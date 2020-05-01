@@ -1,0 +1,10 @@
+# The ksm.yaml file is required when multiple charts are in the offering. For a single chart, it is optional. 
+# KSM enables you to offer multiple Helm charts in a single service named offering. 
+# NOTE: Refer to the "(Optional) Offer Multiple Charts in a Single Offering" section in the "Preparing a Service Offering" document 
+#     at https://docs.pivotal.io/ksm if you need further information.
+marketplace-name: oracledb # the offer name to show as service name in cf marketplace. Default is the chart name if there is no ksm.yaml file
+charts:
+  - chart: oracledb
+    version: 0.1.1
+    offered: true
+    scope: namespace
